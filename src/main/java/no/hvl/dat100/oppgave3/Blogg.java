@@ -5,20 +5,25 @@ import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+    //Oppgave 3a) Stod ikke noe om private/public/protected
+    Innlegg[] innleggtabell;
+    int nesteLedig;
 
+    // Oppgave 3b)
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		innleggtabell = new Innlegg[20];
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		innleggtabell = new Innlegg[lengde];
 	}
 
+    // Oppgave 3c)
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		return nesteLedig;
 	}
-	
+
+    // Oppgave 3d)
 	public Innlegg[] getSamling() {
 		throw new UnsupportedOperationException(TODO.method());
 
