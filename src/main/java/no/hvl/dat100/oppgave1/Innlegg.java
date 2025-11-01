@@ -10,9 +10,7 @@ public abstract class Innlegg {
     private String dato;
     private int likes;
 	
-	public Innlegg() {
-		
-	}
+	public Innlegg() {}
 
     // Oppgave 1b)
 	public Innlegg(int id, String bruker, String dato) {

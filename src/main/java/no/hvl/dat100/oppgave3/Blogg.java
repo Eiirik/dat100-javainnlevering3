@@ -67,11 +67,14 @@ public class Blogg {
 	}
 
     // Oppgave 3i)
+    @Override
 	public String toString() {
         String temp = nesteLedig + "\n";
 
         for (Innlegg i : innleggtabell) {
-            temp += i.toString();
+            if (i != null) {
+                temp += i.toString();
+            }
         }
         return temp;
 	}
