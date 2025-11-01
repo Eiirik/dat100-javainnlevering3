@@ -6,8 +6,8 @@ import no.hvl.dat100.oppgave1.*;
 public class Blogg {
 
     //Oppgave 3a) Stod ikke noe om private/public/protected
-    Innlegg[] innleggtabell;
-    int nesteLedig;
+    private Innlegg[] innleggtabell;
+    private int nesteLedig;
 
     // Oppgave 3b)
 	public Blogg() {
@@ -25,37 +25,65 @@ public class Blogg {
 
     // Oppgave 3d)
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		 return innleggtabell;
 	}
-	
+
+    // Oppgave 3e)
 	public int finnInnlegg(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		for (int i=0; i<nesteLedig; i++) {
+            if (innleggtabell[i].erLik(innlegg)) {
+                return i;
+            }
+        }
+        return -1;
 	}
 
+    // Oppgave ef)
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+        for (int i=0; i<nesteLedig; i++) {
+            if (innleggtabell[i].erLik(innlegg)) {
+                return true;
+            }
+        }
+        return false;
 	}
 
+    // Oppgave 3g)
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
-
+        return nesteLedig < innleggtabell.length;
 	}
-	
+
+    // Oppgave 3h)
 	public boolean leggTil(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+        if (ledigPlass() && !finnes(innlegg)) {
+            innleggtabell[nesteLedig] = innlegg;
+            nesteLedig++;
+            return true;
+        }
+        else {
+            return false;
+        }
 	}
-	
+
+    // Oppgave 3i)
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+        String temp = nesteLedig + "\n";
+
+        for (Innlegg i : innleggtabell) {
+            temp += i.toString();
+        }
+        return temp;
 	}
 
 	// valgfrie oppgaver nedenfor
-	
+
+    // Oppgave 3j)
 	public void utvid() {
-		throw new UnsupportedOperationException(TODO.method());
+        Innlegg[] nyTab = new Innlegg[innleggtabell.length * 2];
+
+        System.arraycopy(innleggtabell, 0, nyTab, 0, nesteLedig);
+        innleggtabell = nyTab;
 	}
 	
 	public boolean leggTilUtvid(Innlegg innlegg) {
@@ -63,10 +91,18 @@ public class Blogg {
 		throw new UnsupportedOperationException(TODO.method());
 		
 	}
-	
+
+    // Oppgave 3I)
 	public boolean slett(Innlegg innlegg) {
-		
-		throw new UnsupportedOperationException(TODO.method());
+        if (finnes(innlegg) && innlegg != null) {
+            int pos = finnInnlegg(innlegg);
+
+            innleggtabell[pos] = innleggtabell[nesteLedig - 1];
+            innleggtabell[nesteLedig - 1] = null;
+            nesteLedig--;
+            return true;
+        }
+        return false;
 	}
 	
 	public int[] search(String keyword) {
