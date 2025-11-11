@@ -28,49 +28,32 @@ public abstract class Innlegg {
 	}
 
     // Oppgave 1c - Get/Set metoder
-	public String getBruker() {
-        return bruker;
-	}
+	public String getBruker() { return bruker; }
 
-	public void setBruker(String bruker) {
-		this.bruker = bruker;
-	}
+	public void setBruker(String bruker) { this.bruker = bruker; }
 
-	public String getDato() {
-		return dato;
-	}
+	public String getDato() { return dato; }
 
-	public void setDato(String dato) {
-		this.dato = dato;
-	}
+	public void setDato(String dato) { this.dato = dato; }
 
-	public int getId() {
-		return id;
-	}
+	public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-	public int getLikes() {
-		return likes;
-
-	}
+	public int getLikes() { return likes; }
 	
 	public void doLike () {
-		likes++;
-	}
+        likes++;
+    }
 
     // Oppgave 1f)
 	public boolean erLik(Innlegg innlegg) {
-
         return this.id == innlegg.id;
 	}
 
     // Oppgave 1e)
 	@Override
 	public String toString() {
-
 		return  id + "\n" +
                 bruker + "\n" +
                 dato + "\n" +
